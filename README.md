@@ -9,8 +9,7 @@ just ldap-clean
 just ldap-up
 just ldap-config
 just ldap-restart
-just ldap-alive
 ```
 
 
-[phpLDAPadmin](http://localhost:8080/)
+[phpLDAPadmin (http://localhost:8080/)](http://localhost:8080/)
