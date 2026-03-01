@@ -1,0 +1,22 @@
+services:
+  openldap:
+    build: .
+    container_name: servidor-ldap-debian
+    ports:
+      - "389:389"
+    # IMPORTANTE: Para que los alumnos puedan trastear, 
+    # a veces es útil mapear la configuración
+    volumes:
+      - ./config:/etc/ldap/slapd.d
+      - ./data:/var/lib/ldap
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: cliente-web-ldap
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+      - PHPLDAPADMIN_HTTPS=false
+    ports:
+      - "8080:80"
+    depends_on:
+      - openldap
