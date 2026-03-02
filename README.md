@@ -1,12 +1,16 @@
 # OpenLDAP-lab
 Levanta dos contenedores para trastear con LDAP.
+
 Configura dos contenedores usando docker, uno para OpenLDAP y otro para phpLDAPadmin.
+
 
 ## Configuración inicial
 ```bash
 ./setup.sh
 source ~/.bashrc
 ```
+
+
 ## Iniciar el laboratorio desde cero
 ```bash
 just ldap-clean
@@ -14,9 +18,29 @@ just ldap-up
 just ldap-config
 just ldap-restart
 ```
+
+
+## Inicio normal
+```bash
+just ldap-up
+```
+
+
 ## Administrar LDAP
 [phpLDAPadmin (http://localhost:8080/)](http://localhost:8080/)
+
 También se puede administrar por consola entrando con docker exec.
+```bash
+docker exec -it servidor-ldap-debian bash
+```
+
+
+## Búsquedas
+```bash
+just ldap-search "dc=practica,dc=local"
+```
+
+
 
 ## Pixi y Just
 Este proyecto instala pixi (en el usuario local en ~/.pixi) y just (para automatizar).

@@ -48,3 +48,9 @@ ldap-restart:
   docker compose restart openldap
   docker exec servidor-ldap-debian ldapsearch -x -H ldap://localhost -b "dc=practica,dc=local"
 
+# Buscar
+ldap-search search:
+  docker compose restart openldap
+  docker exec servidor-ldap-debian ldapsearch -x -H ldap://localhost -b "{{search}}"
+
+
